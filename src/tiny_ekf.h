@@ -13,16 +13,16 @@
   * @param n number of state variables
   * @param m number of observables
   *
-  * <tt>ekf</tt> should be a pointer to a structure defined as follows, where <tt>N</tt> and </tt>M</tt> are 
+  * <tt>ekf</tt> should be a pointer to a structure defined as follows, where <tt>N</tt> and </tt>M</tt> are
   * constants:
   * <pre>
-        int n;           // number of state values 
-        int m;           // number of observables 
+        int n;           // number of state values
+        int m;           // number of observables
 
         double x[N];     // state vector
 
         double P[N][N];  // prediction error covariance
-        double Q[N][N];  // process noise covariance 
+        double Q[N][N];  // process noise covariance
         double R[M][M];  // measurement error covariance
 
         double G[N][M];  // Kalman gain; a.k.a. K
@@ -43,16 +43,16 @@
         double tmp2[M][N];
         double tmp3[M][M];
         double tmp4[M][M];
-        double tmp5[M]; 
+        double tmp5[M];
     * </pre>
   */
-void ekf_init(void * ekf, int n, int m);
+void ekf_init(void *ekf, int n, int m);
 
 /**
   * Runs one step of EKF prediction and update. Your code should first build a model, setting
   * the contents of <tt>ekf.fx</tt>, <tt>ekf.F</tt>, <tt>ekf.hx</tt>, and <tt>ekf.H</tt> to appropriate values.
-  * @param ekf pointer to structure EKF 
+  * @param ekf pointer to structure EKF
   * @param z array of measurement (observation) values
   * @return 0 on success, 1 on failure caused by non-positive-definite matrix.
   */
-int ekf_step(void * ekf, double * z);
+int ekf_step(void *ekf, double *z);
